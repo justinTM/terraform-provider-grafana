@@ -134,11 +134,11 @@ func resourceDashboardV0() *schema.Resource {
 func resourceDashboardStateUpgradeV0(ctx context.Context, rawState map[string]interface{}, meta interface{}) (map[string]interface{}, error) {
 	client := meta.(*client).gapi
 	dashboardID := int64(rawState["dashboard_id"].(float64))
-	params := url.Values{
+	query := url.Values{
 		"type":         {"dash-db"},
 		"dashboardIds": {strconv.FormatInt(dashboardID, 10)},
 	}
-	resp, err := client.FolderDashboardSearch(params)
+	resp, err := client.FolderDashboardSearch(query)
 	if err != nil {
 		return nil, fmt.Errorf("error attempting to migrate state. Grafana returned an error while searching for dashboard with ID %s: %s", query.Get("dashboardIds"), err)
 	}
