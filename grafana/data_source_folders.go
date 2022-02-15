@@ -40,7 +40,7 @@ func dataSourceReadFolders(ctx context.Context, d *schema.ResourceData, meta int
 	var diags diag.Diagnostics
 	params := url.Values{
 		"limit": {fmt.Sprint(d.Get("limit"))},
-		"type":  {"folder-db"},
+		"type":  {"dash-folder"},
 	}
 
 	d.SetId(hashDashboardSearchParameters(params))
