@@ -38,22 +38,6 @@ Datasource for retrieving all Grafana folders.
 	}
 }
 
-func hashDashboardSearchParameters(params map[string][]string) string {
-	// hash a sorted slice of all string parameters and corresponding values
-	hashOut := sha256.New()
-
-	var paramsList []string
-	for key, vals := range params {
-		paramsList = append(paramsList, key)
-		paramsList = append(paramsList, vals...)
-	}
-
-	sort.Strings(paramsList)
-	hashIn := strings.Join(paramsList, "")
-	hashOut.Write([]byte(hashIn))
-	return fmt.Sprintf("%x", hashOut.Sum(nil))[0:23]
-}
-
 func dataSourceReadFolders(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	client := meta.(*client).gapi
 	var diags diag.Diagnostics
