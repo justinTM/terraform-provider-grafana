@@ -2,11 +2,8 @@ package grafana
 
 import (
 	"context"
-	"crypto/sha256"
 	"fmt"
 	"net/url"
-	"sort"
-	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
