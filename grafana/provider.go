@@ -157,6 +157,7 @@ func Provider(version string) func() *schema.Provider {
 				"grafana_dashboard":      DatasourceDashboard(),
 				"grafana_dashboards":     DatasourceDashboards(),
 				"grafana_folder":         DatasourceFolder(),
+        "grafana_folders":       DatasourceFolders(),
 				"grafana_library_panel":  DatasourceLibraryPanel(),
 				"grafana_library_panels": DatasourceLibraryPanels(),
 				"grafana_user":           DatasourceUser(),
